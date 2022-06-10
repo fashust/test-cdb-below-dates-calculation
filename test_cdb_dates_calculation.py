@@ -30,7 +30,7 @@ def calculate_normalized(
     timedelta_obj: datetime.timedelta
 ) -> datetime.datetime:
     return calc_normalized_datetime(
-        dt_obj, 
+        dt_obj,
         ceil=timedelta_obj > datetime.timedelta()
     )
 
@@ -41,9 +41,9 @@ def calculate_expected(
     cdb_calendar: t.Dict[str, bool]
 ) -> datetime.datetime:
     return calc_working_datetime(
-        dt_obj, 
-        timedelta_obj, 
-        True, 
+        dt_obj,
+        timedelta_obj,
+        True,
         cdb_calendar
     )
 
@@ -76,28 +76,28 @@ if __name__ == '__main__':
     cdb_calendar = get_calendar()
 
     cdb_expected_enq_start = calculate_normalized(
-        enq_start, 
+        enq_start,
         datetime.timedelta(days=3)
     )
     cdb_expected_enq_end = calculate_expected(
-        cdb_expected_enq_start, 
-        datetime.timedelta(days=3), 
+        cdb_expected_enq_start,
+        datetime.timedelta(days=3),
         cdb_calendar
     )
     cdb_expected_tend_start = calculate_normalized(
-        tend_start, 
+        tend_start,
         datetime.timedelta(days=2)
     )
     cdb_expected_tend_end = calculate_expected(
-        cdb_expected_tend_start, 
-        datetime.timedelta(days=2), 
+        cdb_expected_tend_start,
+        datetime.timedelta(days=2),
         cdb_calendar
     )
 
     data = [
         [
-            'enquiry period start', 
-            enq_start.isoformat(), 
+            'enquiry period start',
+            enq_start.isoformat(),
             cdb_expected_enq_start.isoformat()
         ],
         [
